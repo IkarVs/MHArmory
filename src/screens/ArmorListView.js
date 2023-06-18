@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ArmorView = () => {
+const ArmorListView = () => {
   const [armors, setArmors] = useState([]);
 
   useEffect(() => {
@@ -17,12 +17,11 @@ const ArmorView = () => {
 
   const renderArmorItem = ({ item }) => (
     <TouchableOpacity style={styles.armorContainer}>
-      {item.assets && item.assets.imageMale ? (
-        <Image source={{ uri: item.assets.imageMale }} style={styles.armorImage} />
-      ) : (
-        <View style={styles.emptyImage} />
-      )}
-      <Text style={styles.armorName}>{item.name}</Text>
+      <Image source={{ uri: item.assets && item.assets.imageMale }} style={styles.armorImage} />
+      <View style={styles.armorInfoContainer}>
+        <Text style={styles.armorName}>{item.name}</Text>
+        <Text style={styles.armorType}>{item.type}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -43,12 +42,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#2C2C2C',
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
+    textAlign: 'center',
+    color: '#FFFFFF',
   },
   armorContainer: {
     flex: 1,
@@ -56,25 +57,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 8,
     padding: 8,
-    backgroundColor: 'white',
+    backgroundColor: '#424242',
     borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#ccc',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
   armorImage: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     marginBottom: 8,
     resizeMode: 'contain',
   },
-  emptyImage: {
-    width: 100,
-    height: 100,
-    marginBottom: 8,
-    backgroundColor: 'white',
+  armorInfoContainer: {
+    alignItems: 'center',
   },
   armorName: {
     fontSize: 16,
+    fontWeight: 'bold',
     textAlign: 'center',
+    marginBottom: 4,
+    color: '#FFFFFF',
+  },
+  armorType: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#FFFFFF',
   },
 });
 
-export default ArmorView;
+export default ArmorListView;
