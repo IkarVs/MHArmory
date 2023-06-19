@@ -40,7 +40,12 @@ const ArmorListView = ({ navigation }) => {
           numColumns={2}
         />
       ) : (
-        <Text>Loading...</Text>
+        <><Text>Loading...</Text>
+          <Image
+            style = {styles.gif}
+            source={require('../../src/assets/icons/13273.gif')}
+          />
+        </>
       )}
     </View>
   );
@@ -51,6 +56,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: '#2C2C2C',
+  },
+  gif: {
+    align: 'right',
+    width: 250,
+    height: 250,
+
   },
   title: {
     fontSize: 20,
