@@ -5,38 +5,83 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CatsScreen from '../screens/CatsScreen';
 import HomeScreen from '../screens/HomeScreen';
 import DogsScreen from '../screens/DogsScreen';
-import ArmorView from "../screens/ArmorView";
+import ArmorListView from '../screens/ArmorListView';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ArmorDetailsView from "../screens/ArmorDetailsView";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
 const styles = StyleSheet.create({
   image:{
     height:25,
     width :25,
   },
 });
-export default function NavBar() {
+function NavBar() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen
           name={'home'}
           component={HomeScreen}
           options={{
-            headerShown: false,
             tabBarIcon: ({}) => (
               <View>
                 <Image
                   style={styles.image}
-                  source={require('../../src/assets/icons/home.png')}
+                source={require('../../src/assets/icons/home.png')}
                 />
               </View>
             ),
           }}
         />
-        <Tab.Screen name="Cats" component={CatsScreen} />
-        <Tab.Screen name="Dogs" component={DogsScreen}/>
-        <Tab.Screen name="Armor" component={ArmorView}/>
+        <Tab.Screen name="Armor" component={ArmorListView}
+        options={{
+          tabBarIcon:({})=>(
+            <View>
+              <Image
+                style={styles.image}
+                source = {require('../../src/assets/icons/armor.png')}
+              />
+            </View>
+          )
+        }}
+        />
       </Tab.Navigator>
+  );
+}
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="Home"
+          component={NavBar}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ArmorListView"
+          component={ArmorListView}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ArmorDetailsView"
+          component={ArmorDetailsView}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Dogs"
+          component={DogsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cats"
+          component={CatsScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+
     </NavigationContainer>
   );
 }
+export default App;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ArmorListView = () => {
+const ArmorListView = ({ navigation }) => {
   const [armors, setArmors] = useState([]);
 
   useEffect(() => {
@@ -15,8 +15,12 @@ const ArmorListView = () => {
       });
   }, []);
 
+  const handleArmorPress = (armor) => {
+    navigation.navigate('ArmorDetailsView', { armor });
+  };
+
   const renderArmorItem = ({ item }) => (
-    <TouchableOpacity style={styles.armorContainer}>
+    <TouchableOpacity style={styles.armorContainer} onPress={() => handleArmorPress(item)}>
       <Image source={{ uri: item.assets && item.assets.imageMale }} style={styles.armorImage} />
       <View style={styles.armorInfoContainer}>
         <Text style={styles.armorName}>{item.name}</Text>
