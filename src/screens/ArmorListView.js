@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C2C2C',
   },
   gif: {
-    align: 'right',
-    width: 250,
+    direction: 'rtl',
+    width: 500,
     height: 250,
 
   },
