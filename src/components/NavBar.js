@@ -8,6 +8,7 @@ import DogsScreen from '../screens/DogsScreen';
 import ArmorListView from '../screens/ArmorListView';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ArmorDetailsView from '../screens/ArmorDetailsView';
+import ArmorDetailsScreen from "../screens/ArmorDetailsScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -77,6 +78,11 @@ function App() {
         <Stack.Screen
           name="Cats"
           component={CatsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ArmorDetails"
+          component={ArmorDetailsScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

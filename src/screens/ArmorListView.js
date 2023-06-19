@@ -16,7 +16,7 @@ const ArmorListView = ({ navigation }) => {
   }, []);
 
   const handleArmorPress = (armor) => {
-    navigation.navigate('ArmorDetailsView', { armor });
+    navigation.navigate('ArmorDetails', { armor });
   };
 
   const renderArmorItem = ({ item }) => (
@@ -32,12 +32,16 @@ const ArmorListView = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Monster Hunter Armors</Text>
-      <FlatList
-        data={armors}
-        renderItem={renderArmorItem}
-        keyExtractor={item => item.id.toString()}
-        numColumns={2}
-      />
+      {armors && armors.length > 0 ? (
+        <FlatList
+          data={armors}
+          renderItem={renderArmorItem}
+          keyExtractor={item => item.id.toString()}
+          numColumns={2}
+        />
+      ) : (
+        <Text>Loading...</Text>
+      )}
     </View>
   );
 };
