@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CatsScreen from '../screens/CatsScreen';
 import HomeScreen from '../screens/HomeScreen';
 import DogsScreen from '../screens/DogsScreen';
 import ArmorListView from '../screens/ArmorListView';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ArmorDetailsView from "../screens/ArmorDetailsView";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ArmorDetailsView from '../screens/ArmorDetailsView';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
