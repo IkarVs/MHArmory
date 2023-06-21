@@ -46,7 +46,7 @@ const WeaponListView = ({navigation}) => {
       style={styles.weaponContainer}
       onPress={() => handleWeaponPress(item)}>
       <Image
-        source={{uri: item.assets && item.assets.icon}}
+        source={{uri: item.assets && item.assets.image}}
         style={styles.weaponImage}
       />
       <View style={styles.weaponInfoContainer}>
