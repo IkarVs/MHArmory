@@ -1,21 +1,20 @@
-// Exemple de navigation vers la vue des détails d'une instance d'armure
 import React from 'react';
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, Text, Button, Image, StyleSheet } from "react-native";
 
-const ArmorDetailsView = ({ armors, navigation }) => {
-  const handleArmorPress = (armor) => {
-    navigation.navigate('ArmorDetailsView', { armor });
-  };
-
+const ArmorDetailsView = ({ armor, onGoBack }) => {
   return (
     <View>
-      {armors.map((armor) => (
-        <TouchableOpacity key={armor.id} onPress={() => handleArmorPress(armor)}>
-          {/* Affichage des détails d'une instance d'armure */}
-        </TouchableOpacity>
-      ))}
+      <Image style={styles.image} source={{uri: armor.assets && armor.assets.imageMale}} />
+      <Text>{armor.name}</Text>
+      <Button title="Retour" onPress={onGoBack} />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  image: {
+    height: 360,
+    width: 360,
+  },
+});
 
 export default ArmorDetailsView;

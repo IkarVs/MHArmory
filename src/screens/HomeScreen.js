@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Button, Pressable,
+  Button,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -8,7 +9,7 @@ import {
   Text,
   useColorScheme,
   View,
-} from "react-native";
+} from 'react-native';
 
 import {
   Colors,
@@ -17,26 +18,32 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import DisplayACatImage from '../components/Cat';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import auth, {firebase} from '@react-native-firebase/auth';
+import GoogleSignIn from '../components/GoogleSignIn';
+import GoogleSignOut from "../components/GoogleSignOut";
 
-export default function HomeScreen({navigation}){
+export default function HomeScreen({navigation}) {
   return (
     <View>
-      <Pressable style={styles.button_cat} onPress={() => navigation.navigate('Cats', {animal: 'cats'})}>
-        <Text style={styles.text}>Test Chat</Text>
-      </Pressable>
-
-      <Pressable style={styles.button_dog}  onPress={() => navigation.navigate('Cats', {animal: 'Chien'})}>
-        <Text style={styles.text}>Test Pas Chat</Text>
-      </Pressable>
+      <GoogleSignIn />
+      <GoogleSignOut/>
     </View>
   );
 }
+function WhosConnected() {
+  const LogConnected = async () => {
+    console.log(auth().currentUser);
+  };
+  return <Button title="who's connected  " onPress={LogConnected} />;
+}
+
+
 const styles = StyleSheet.create({
   button_cat: {
-    position: 'relative' ,
-    top : 200,
-    left:100,
+    position: 'relative',
+    top: 200,
+    left: 100,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
@@ -44,13 +51,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: 'black',
-    width:200,
-    height:50,
+    width: 200,
+    height: 50,
   },
   button_dog: {
-    position: 'relative' ,
-    top : 400,
-    left:100,
+    position: 'relative',
+    top: 400,
+    left: 100,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
@@ -58,8 +65,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: 'black',
-    width:200,
-    height:50,
+    width: 200,
+    height: 50,
   },
   text: {
     fontSize: 16,

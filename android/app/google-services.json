@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "432126369602",
+    "project_id": "rn-mharmory",
+    "storage_bucket": "rn-mharmory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432126369602:android:5ff11b1306e16f5431b2db",
+        "android_client_info": {
+          "package_name": "com.sniffer_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432126369602-4ovvin7veqns2n6l96ldk4lfird4h653.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sniffer_mobile",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "432126369602-8fbkntp5p15lefulln4f5b5j985bs89t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1mhqle_lKpthyv2o660014KAhuwehXS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432126369602-7ub6iq20f3204c0ak4le59flrrtcke47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
