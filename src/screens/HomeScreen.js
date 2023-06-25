@@ -18,27 +18,31 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import auth, {firebase} from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth, { firebase } from '@react-native-firebase/auth';
 import GoogleSignIn from '../components/GoogleSignIn';
 import GoogleSignOut from '../components/GoogleSignOut';
 import WhosConnected from '../components/ProfilConnected';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen({ navigation }) {
   return (
-    <View>
-      <GoogleSignIn />
-      <GoogleSignOut />
+    <View style={styles.container}>
       <WhosConnected />
+      <GoogleSignIn style={styles.bottomView} />
+      <GoogleSignOut style={styles.bottomView} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button_cat: {
-    position: 'relative',
-    top: 200,
-    left: 100,
+  container: {
+    flex: 1,
+  },
+  bottomView: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
@@ -48,26 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     width: 200,
     height: 50,
-  },
-  button_dog: {
-    position: 'relative',
-    top: 400,
-    left: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: 'black',
-    width: 200,
-    height: 50,
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'white',
+    marginVertical: 16,
+    marginHorizontal: 16,
   },
 });
