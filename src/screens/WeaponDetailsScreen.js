@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from "react-native";
-import ArmorDetailsView from './ArmorDetailsView';
+import WeaponDetailsView from "./WeaponDetailsView";
 
-const ArmorDetailsScreen = ({ route, navigation }) => {
-  const { armor } = route.params;
+const WeaponDetailsScreen = ({ route, navigation }) => {
+  const { weapon } = route.params;
 
   const handleGoBack = () => {
     navigation.goBack();
@@ -11,7 +11,7 @@ const ArmorDetailsScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ArmorDetailsView armor={armor} onGoBack={handleGoBack} />
+      <WeaponDetailsView weapon={weapon} onGoBack={handleGoBack} />
     </View>
   );
 };
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArmorDetailsScreen;
+export default WeaponDetailsScreen;

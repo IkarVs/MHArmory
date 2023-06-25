@@ -68,7 +68,6 @@ const WeaponListView = ({navigation}) => {
         />
       ) : (
         <>
-          <Text>Loading...</Text>
           <Image
             style={styles.gif}
             source={require('../../src/assets/icons/13273.gif')}

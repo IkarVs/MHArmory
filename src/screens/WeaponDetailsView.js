@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, Button, Image, StyleSheet} from 'react-native';
 
-const ArmorDetailsView = ({armor, onGoBack}) => {
+const WeaponDetailsView = ({weapon, onGoBack}) => {
   return (
     <View>
-      <Image style={styles.image} source={{uri: armor.assets.imageMale}} />
-      <Text style={styles.armorName}>{armor.name}</Text>
-      <Text>Armor Rank : {armor.rank}</Text>
-      <Text>Rarity : {armor.rarity}</Text>
-      <Text>ArmorType : {armor.type}</Text>
+      <Image style={styles.image} source={{uri: weapon.assets && weapon.assets.image}} />
+      <Text style={styles.weaponName}>{weapon.name}</Text>
+      <Text>Weapon Rank : {weapon.rank}</Text>
+      <Text>Rarity : {weapon.rarity}</Text>
+      <Text>Weapon Type : {weapon.type}</Text>
       <View style={styles.buttonContainer}>
         <Button title="Retour" onPress={onGoBack} />
       </View>
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
   },
-  armorName: {
+  weaponName: {
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 16,
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArmorDetailsView;
+export default WeaponDetailsView;
