@@ -8,6 +8,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ArmorDetailsView from '../screens/ArmorDetailsView';
 import ArmorDetailsScreen from '../screens/ArmorDetailsScreen';
 import WeaponListView from '../screens/WeaponListView';
+import WeaponDetailsScreen from "../screens/WeaponDetailsScreen";
+import WeaponDetailsView from "../screens/WeaponDetailsView";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,6 +77,10 @@ function App() {
         <Stack.Screen name="ArmorDetailsView" component={ArmorDetailsView} />
         <Stack.Screen name="ArmorDetails" component={ArmorDetailsScreen} />
         <Stack.Screen name="WeaponListView" component={WeaponListView} />
+        <Stack.Screen name="WeaponDetails" component={WeaponDetailsScreen} />
+        <Stack.Screen name="WeaponDetailsView" component={WeaponDetailsView} />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );
