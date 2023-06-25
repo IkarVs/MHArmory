@@ -21,23 +21,18 @@ import {
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth, {firebase} from '@react-native-firebase/auth';
 import GoogleSignIn from '../components/GoogleSignIn';
-import GoogleSignOut from "../components/GoogleSignOut";
+import GoogleSignOut from '../components/GoogleSignOut';
+import WhosConnected from '../components/ProfilConnected';
 
 export default function HomeScreen({navigation}) {
   return (
     <View>
       <GoogleSignIn />
-      <GoogleSignOut/>
+      <GoogleSignOut />
+      <WhosConnected />
     </View>
   );
 }
-function WhosConnected() {
-  const LogConnected = async () => {
-    console.log(auth().currentUser);
-  };
-  return <Button title="who's connected  " onPress={LogConnected} />;
-}
-
 
 const styles = StyleSheet.create({
   button_cat: {
