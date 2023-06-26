@@ -29,7 +29,6 @@ function WhosConnected() {
       ) : (
         <Text>Personne n'est connecté !</Text>
       )}
-      <Button title="who's connected" onPress={LogConnected} />
     </View>
   );
 }

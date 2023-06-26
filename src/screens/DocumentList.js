@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View, StyleSheet } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
@@ -50,15 +50,16 @@ const DocumentList = () => {
   );
 
   const renderDocumentItem = ({ item }) => (
-    <View>
-      <Text>{item.name}</Text>
+    <View style={styles.documentItem}>
+      <Text style={styles.documentName}>{item.name}</Text>
+      <Text style={styles.documentType}>{item.ItemType}</Text>
       {/* Afficher les autres données du document */}
     </View>
   );
 
   if (isLoading) {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>Loading...</Text>
       </View>
     );
@@ -66,14 +67,15 @@ const DocumentList = () => {
 
   if (!currentUser) {
     return (
-      <View>
-        <Text>Connectez-vous pour accéder aux documents</Text>
+      <View style={styles.container}>
+        <Text style={styles.loginText}>Connectez-vous pour accéder aux documents</Text>
       </View>
     );
   }
 
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Items Favoris</Text>
       <FlatList
         data={documents}
         renderItem={renderDocumentItem}
@@ -82,5 +84,33 @@ const DocumentList = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  documentItem: {
+    marginBottom: 16,
+  },
+  documentName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  documentType: {
+    fontSize: 16,
+  },
+  loginText: {
+    fontSize: 16,
+    marginTop: 16,
+  },
+});
 
 export default DocumentList;
