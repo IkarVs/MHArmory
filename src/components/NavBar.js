@@ -74,7 +74,7 @@ function NavBar() {
             <View>
               <Image
                 style={styles.image}
-                source={require('../../src/assets/icons/weapon.png')}
+                source={require('../../src/assets/icons/star.png')}
               />
             </View>
           ),
