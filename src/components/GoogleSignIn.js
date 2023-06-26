@@ -1,5 +1,5 @@
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
 import {Button, View} from 'react-native';
 import React from 'react';
 
