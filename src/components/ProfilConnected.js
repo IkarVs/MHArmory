@@ -15,6 +15,7 @@ function WhosConnected() {
 
   const LogConnected = () => {
     console.log(currentUser);
+    console.log(currentUser.uid);
   };
 
   return (
