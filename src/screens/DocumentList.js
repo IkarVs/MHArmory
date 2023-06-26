@@ -51,7 +51,7 @@ const DocumentList = () => {
 
   const renderDocumentItem = ({ item }) => (
     <View>
-      <Text>{item.id}</Text>
+      <Text>{item.name}</Text>
       {/* Afficher les autres données du document */}
     </View>
   );
