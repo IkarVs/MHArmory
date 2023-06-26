@@ -10,6 +10,7 @@ import ArmorDetailsScreen from '../screens/ArmorDetailsScreen';
 import WeaponListView from '../screens/WeaponListView';
 import WeaponDetailsScreen from "../screens/WeaponDetailsScreen";
 import WeaponDetailsView from "../screens/WeaponDetailsView";
+import DocumentList from "../screens/DocumentList";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -65,6 +66,20 @@ function NavBar() {
           ),
         }}
       />
+      <Tab.Screen
+        name="Favorites"
+        component={DocumentList}
+        options={{
+          tabBarIcon: ({}) => (
+            <View>
+              <Image
+                style={styles.image}
+                source={require('../../src/assets/icons/star.png')}
+              />
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -79,6 +94,7 @@ function App() {
         <Stack.Screen name="WeaponListView" component={WeaponListView} />
         <Stack.Screen name="WeaponDetails" component={WeaponDetailsScreen} />
         <Stack.Screen name="WeaponDetailsView" component={WeaponDetailsView} />
+        <Stack.Screen name="DocumentList" component={DocumentList} />
 
 
       </Stack.Navigator>

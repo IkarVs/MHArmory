@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  Image,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -9,7 +10,7 @@ import {
   Text,
   useColorScheme,
   View,
-} from 'react-native';
+} from "react-native";
 
 import {
   Colors,
@@ -27,6 +28,12 @@ import WhosConnected from '../components/ProfilConnected';
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <Image
+          style={styles.image}
+          source={require('../../src/assets/icons/ib_icon.png')}
+        />
+      </View>
       <WhosConnected />
       <GoogleSignIn style={styles.bottomView} />
       <GoogleSignOut style={styles.bottomView} />
@@ -37,6 +44,16 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  imageContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    height: 200,
+    width: 200,
+    resizeMode: 'contain',
   },
   bottomView: {
     position: 'absolute',
